@@ -1,2 +1,0 @@
-# silofortune
-testing
