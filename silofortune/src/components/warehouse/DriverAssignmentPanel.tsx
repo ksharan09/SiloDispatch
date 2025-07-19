@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import TestingFile from "../testing/TestingFile";
+// import TestingFile from "../testing/TestingFile";
 import {
   User,
   MapPin,
@@ -354,7 +354,7 @@ const DriverAssignmentPanel: React.FC = () => {
         </div>
       </div>
     </div>
-    <TestingFile />
+    {/* <TestingFile /> */}
     </>
   );
 };

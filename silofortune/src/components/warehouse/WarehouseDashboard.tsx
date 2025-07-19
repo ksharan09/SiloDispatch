@@ -12,14 +12,18 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+ 
+
 const WarehouseDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState("batches");
-
+  
   const tabs = [
     { id: "batches", label: "Order Batches", icon: Upload },
     { id: "drivers", label: "Driver Management", icon: Users },
     { id: "cod", label: "COD Tracking", icon: DollarSign },
   ];
+
+ ;
 
   return (
     <div className="min-h-screen bg-[#121212] p-6">
@@ -114,11 +118,10 @@ const WarehouseDashboard: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all flex-1 justify-center ${
-                activeTab === tab.id
+              className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all flex-1 justify-center ${activeTab === tab.id
                   ? "bg-[#BB86FC] text-white shadow-lg"
                   : "text-gray-400 hover:bg-[#2A2A2A] hover:text-white"
-              }`}
+                }`}
             >
               <tab.icon className="h-5 w-5" />
               <span className="font-medium">{tab.label}</span>
@@ -133,7 +136,21 @@ const WarehouseDashboard: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {activeTab === "batches" && <OrderBatchGenerator />}
+          {activeTab === "batches" && (
+            <div>
+              {/* CSV Upload UI */}
+              {/* <div className="border-dashed border-2 p-4 rounded mb-6">
+                <input type="file" accept=".csv" onChange={onFileChange} />
+                <button
+                  disabled={loading}
+                  className="ml-4 px-4 py-2 bg-[#BB86FC] text-white rounded"
+                >
+                  {loading ? "Clustering..." : "Generate Batches"}
+                </button>
+              </div> */}
+              <OrderBatchGenerator />
+            </div>
+          )}
           {activeTab === "drivers" && <DriverAssignmentPanel />}
           {activeTab === "cod" && <CODLedger />}
         </motion.div>
